@@ -9,8 +9,8 @@ using UnrealSharp.UMG;
 namespace ManagedMiniJam1742.UI;
 
 [UClass]
-public class UHealthBarWidget : UUserWidget
+public partial class UHealthBarWidget : UUserWidget
 {
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float HealthPercentage { get; set; }
+    public partial float HealthPercentage { get; set; }
 }

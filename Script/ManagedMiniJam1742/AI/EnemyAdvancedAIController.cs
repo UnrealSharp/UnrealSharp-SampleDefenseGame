@@ -12,9 +12,9 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742.AI;
 
 [UClass]
-public class AEnemyAdvancedAIController : AAdvancedAIController
+public partial class AEnemyAdvancedAIController : AAdvancedAIController
 {
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

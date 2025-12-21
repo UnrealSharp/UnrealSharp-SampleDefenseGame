@@ -10,7 +10,7 @@ using UnrealSharp.CoreUObject;
 namespace ManagedMiniJam1742.AI;
 
 [UClass]
-public class UMyAITask : UObject
+public partial class UMyAITask : UObject
 {
     public AAdvancedAIController Controller { get; set; }
 

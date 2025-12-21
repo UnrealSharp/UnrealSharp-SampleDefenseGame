@@ -13,7 +13,7 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1724.Tools;
 
 [UClass]
-public class USelectTool : UTool
+public partial class USelectTool : UTool
 {
     private FVector selectStartPawnLocation;
     private FVector selectStartLocation;
@@ -60,7 +60,7 @@ public class USelectTool : UTool
         base.Tick(delta);
 
         if (Pawn == null) return;
-        if (!Pawn.IsValid) return;
+        if (!Pawn.IsValid()) return;
 
 
         if (selectStarted)
@@ -103,7 +103,7 @@ public class USelectTool : UTool
 
         foreach(var selectedUnit in selectedUnits)
         {
-            if (selectedUnit != null && selectedUnit.IsValid)
+            if (selectedUnit != null && selectedUnit.IsValid())
             {
                 selectedUnit.GetActorBounds(true, out var selectedUnitOrigin, out var selectedUnitExtent);
 
@@ -181,7 +181,7 @@ public class USelectTool : UTool
                 {
                     if (selectedUnits.Count > 0)
                     {
-                        if (selectedUnits.Any(u => u != null && u.IsValid))
+                        if (selectedUnits.Any(u => u != null && u.IsValid()))
                         {
                             PlaySound2D(AResourceManager.Get().UnitConfirmationSounds.RandomElement());
                         }
@@ -190,7 +190,7 @@ public class USelectTool : UTool
                         {
                             foreach (var selectedUnit in selectedUnits)
                             {
-                                if (selectedUnit != null && selectedUnit.IsValid)
+                                if (selectedUnit != null && selectedUnit.IsValid())
                                 {
                                     selectedUnit.GoToActor(plasticResource);
                                 }
@@ -200,7 +200,7 @@ public class USelectTool : UTool
                         {
                             foreach (var selectedUnit in selectedUnits)
                             {
-                                if (selectedUnit != null && selectedUnit.IsValid)
+                                if (selectedUnit != null && selectedUnit.IsValid())
                                 {
                                     selectedUnit.GoToActor(structure);
                                 }
@@ -210,7 +210,7 @@ public class USelectTool : UTool
                         {
                             foreach (var selectedUnit in selectedUnits)
                             {
-                                if (selectedUnit != null && selectedUnit.IsValid)
+                                if (selectedUnit != null && selectedUnit.IsValid())
                                 {
                                     selectedUnit.GoToActor(unitCharacter);
                                 }
@@ -220,7 +220,7 @@ public class USelectTool : UTool
                         {
                             foreach (var selectedUnit in selectedUnits)
                             {
-                                if (selectedUnit != null && selectedUnit.IsValid)
+                                if (selectedUnit != null && selectedUnit.IsValid())
                                 {
                                     selectedUnit.GoToLocation(hit.ImpactPoint);
                                 }

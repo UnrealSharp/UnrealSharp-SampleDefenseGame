@@ -11,14 +11,14 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class AGhostActor : AActor
+public partial class AGhostActor : AActor
 {
     [UProperty(PropertyFlags.EditAnywhere, DefaultComponent = true, RootComponent = true)]
-    public UStaticMeshComponent StaticMeshComponent { get; set; }
+    public partial UStaticMeshComponent StaticMeshComponent { get; set; }
 
     private AResourceManager resourceManager;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

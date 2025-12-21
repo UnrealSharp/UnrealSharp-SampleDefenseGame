@@ -15,7 +15,7 @@ namespace ManagedMiniJam1742.AI.Tasks;
 
 
 [UClass]
-public class UConquerTask : UMyAITask
+public partial class UConquerTask : UMyAITask
 {
     private AHQStructure hqStructure;
 
@@ -32,7 +32,7 @@ public class UConquerTask : UMyAITask
 
         if (Controller.ControlledPawn is not AUnitCharacter character) return;
 
-        if (hqStructure == null || !hqStructure.IsValid)
+        if (hqStructure == null || !hqStructure.IsValid())
         {
             Complete(true);
             return;

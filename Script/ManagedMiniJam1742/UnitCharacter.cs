@@ -18,40 +18,40 @@ using static ManagedMiniJam1742.AI.Tasks.UAttackTask;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class AUnitCharacter : ACharacter
+public partial class AUnitCharacter : ACharacter
 {
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public ETeam Team { get; set; }
+    public partial ETeam Team { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float Range { get; set; }
+    public partial float Range { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float Damage { get; set; }
+    public partial float Damage { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float VehicleDamage { get; set; }
+    public partial float VehicleDamage { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float StructureDamage { get; set; }
+    public partial float StructureDamage { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float RateOfFire { get; set; }
+    public partial float RateOfFire { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float Health { get; set; }
+    public partial float Health { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public int Cost { get; set; }
+    public partial int Cost { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float BuildTime { get; set; }
+    public partial float BuildTime { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadOnly)]
-    public bool IsShooting { get; private set; }
+    public partial bool IsShooting { get; private set; }
 
     [UProperty(PropertyFlags.EditAnywhere | PropertyFlags.BlueprintReadWrite, DefaultComponent = true, AttachmentComponent = nameof(CapsuleComponent))]
-    public UWidgetComponent HealthBarComponent { get; set; }
+    public partial UWidgetComponent HealthBarComponent { get; set; }
 
     private AAdvancedAIController aiController;
     private AResourceManager resourceManager;
@@ -88,7 +88,7 @@ public class AUnitCharacter : ACharacter
         }
     }
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 
@@ -103,10 +103,8 @@ public class AUnitCharacter : ACharacter
     }
 
     [UFunction(FunctionFlags.BlueprintEvent)]
-    public virtual void OnUnitShoot(AActor target, FVector hitLocation)
-    {
-
-    }
+    public partial void OnUnitShoot(AActor target, FVector hitLocation);
+    public partial void OnUnitShoot_Implementation(AActor target, FVector hitLocation) { }
 
     public void DoDamage(AUnitCharacter target)
     {
@@ -133,10 +131,9 @@ public class AUnitCharacter : ACharacter
     }
 
     [UFunction(FunctionFlags.BlueprintEvent)]
-    public void OnTakeDamage(AActor attacker)
-    {
+    public partial void OnTakeDamage(AActor attacker);
+    public partial void OnTakeDamage_Implementation(AActor attacker) { }
 
-    }
 
     public void UpdateHealthUI(bool uiVisible = false)
     {
@@ -197,7 +194,7 @@ public class AUnitCharacter : ACharacter
 
         if (IsShooting)
         {
-            if (shootAtTarget != null && shootAtTarget.IsValid)
+            if (shootAtTarget != null && shootAtTarget.IsValid())
             {
                 ShootTick(deltaSeconds);
             }
@@ -283,7 +280,7 @@ public class AUnitCharacter : ACharacter
         hitResult = new FHitResult();
 
         if (target == null) return false;
-        if (!target.IsValid) return false;
+        if (!target.IsValid()) return false;
         if (GetDistanceTo(target) > Range) return false;
 
         List<EObjectTypeQuery> hitObjects = [EObjectTypeQuery.ObjectTypeQuery1, EObjectTypeQuery.ObjectTypeQuery2,

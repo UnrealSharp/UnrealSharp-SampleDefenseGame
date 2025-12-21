@@ -10,23 +10,23 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742.Structures;
 
 [UClass]
-public class AGuardTowerStructure : AStructure
+public partial class AGuardTowerStructure : AStructure
 {
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float Damage { get; set; }
+    public partial float Damage { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float RateOfFire { get; set; }
+    public partial float RateOfFire { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float Range { get; set; }
+    public partial float Range { get; set; }
 
     private UGameEventSubSystem gameEvents;
 
     private AActor shootAtTarget;
     private TimeSpan nextFireTime;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 
@@ -49,7 +49,7 @@ public class AGuardTowerStructure : AStructure
                 .OrderBy(u => u.GetDistanceTo(this))
                 .FirstOrDefault();
 
-            if (shootAtTarget != null && shootAtTarget.IsValid)
+            if (shootAtTarget != null && shootAtTarget.IsValid())
             {
                 SetActorRotation(MathLibrary.FindLookAtRotation(ActorLocation, ActorLocation), false);
                 OnShoot(shootAtTarget, shootAtTarget.ActorLocation);
@@ -65,7 +65,9 @@ public class AGuardTowerStructure : AStructure
     }
 
     [UFunction(FunctionFlags.BlueprintEvent)]
-    public virtual void OnShoot(AActor target, FVector hitLocation) { }
+    public partial void OnShoot(AActor target, FVector hitLocation);
+    public partial void OnShoot_Implementation(AActor target, FVector hitLocation) { }
+
 
     public void DoDamage(AUnitCharacter target)
     {

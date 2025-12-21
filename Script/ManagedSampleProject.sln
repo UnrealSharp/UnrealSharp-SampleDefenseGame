@@ -1,27 +1,54 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedMiniJam1742", "ManagedMiniJam1742\ManagedMiniJam1742.csproj", "{EC350C65-D3EB-4A5E-BCB3-F713ABFF44F8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{0BB39A05-1926-C2B2-7003-8EB281EB5439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGlue", "ProjectGlue\ProjectGlue.csproj", "{10A6E853-F682-4C70-999A-795DF48DCCC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedMiniJam1742", "ManagedMiniJam1742\ManagedMiniJam1742.csproj", "{E06ADDA1-3D69-4277-A6D4-32379AC1E322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject.Glue", "SampleProject.Glue\SampleProject.Glue.csproj", "{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Debug|x64.Build.0 = Debug|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Debug|x86.Build.0 = Debug|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Release|x64.ActiveCfg = Release|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Release|x64.Build.0 = Release|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Release|x86.ActiveCfg = Release|Any CPU
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322}.Release|x86.Build.0 = Release|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Debug|x64.Build.0 = Debug|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Debug|x86.Build.0 = Debug|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Release|x64.ActiveCfg = Release|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Release|x64.Build.0 = Release|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Release|x86.ActiveCfg = Release|Any CPU
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC350C65-D3EB-4A5E-BCB3-F713ABFF44F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC350C65-D3EB-4A5E-BCB3-F713ABFF44F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC350C65-D3EB-4A5E-BCB3-F713ABFF44F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC350C65-D3EB-4A5E-BCB3-F713ABFF44F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10A6E853-F682-4C70-999A-795DF48DCCC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10A6E853-F682-4C70-999A-795DF48DCCC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10A6E853-F682-4C70-999A-795DF48DCCC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10A6E853-F682-4C70-999A-795DF48DCCC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	GlobalSection(NestedProjects) = preSolution
+		{E06ADDA1-3D69-4277-A6D4-32379AC1E322} = {0BB39A05-1926-C2B2-7003-8EB281EB5439}
+		{935987FC-63E7-4B2A-BF81-E1A6060B9A3E} = {0BB39A05-1926-C2B2-7003-8EB281EB5439}
 	EndGlobalSection
 EndGlobal

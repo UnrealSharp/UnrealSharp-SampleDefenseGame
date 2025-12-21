@@ -9,7 +9,7 @@ using UnrealSharp.CoreUObject;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class UScriptAnimation : UObject
+public partial class UScriptAnimation : UObject
 {
     public FVector Location { get; set; }
     public FRotator Rotation { get; set; }

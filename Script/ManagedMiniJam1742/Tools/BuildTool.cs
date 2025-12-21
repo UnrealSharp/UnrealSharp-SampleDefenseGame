@@ -14,10 +14,10 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742.Tools;
 
 [UClass]
-public class UBuildTool : UTool
+public partial class UBuildTool : UTool
 {
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public TSubclassOf<AStructure> StructureClass { get; set; }
+    public partial TSubclassOf<AStructure> StructureClass { get; set; }
 
     private AGhostActor ghostActor;
 
@@ -25,7 +25,7 @@ public class UBuildTool : UTool
     {
         base.OnEquip();
 
-        if (!StructureClass.Valid)
+        if (!StructureClass.IsValid)
         {
             Pawn.CreateAndEquipTool(typeof(USelectTool));
             return;
@@ -51,7 +51,7 @@ public class UBuildTool : UTool
 
         var groundVector = GetMouseGroundVector();
 
-        if (ghostActor != null && ghostActor.IsValid && StructureClass.Valid)
+        if (ghostActor != null && ghostActor.IsValid() && StructureClass.IsValid)
         {
             ghostActor.SetActorLocation(groundVector, false, out _, false);
 
@@ -105,7 +105,7 @@ public class UBuildTool : UTool
     {
         base.OnUnEquip();
 
-        if (ghostActor != null && ghostActor.IsValid)
+        if (ghostActor != null && ghostActor.IsValid())
         {
             ghostActor.DestroyActor();
         }

@@ -11,7 +11,7 @@ namespace ManagedMiniJam1742.AI.Tasks;
 
 
 [UClass]
-public class UMoveTask : UMyAITask
+public partial class UMoveTask : UMyAITask
 {
     public FVector MoveToLocation { get; set; }
     public bool AttackMove { get; set; }

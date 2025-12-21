@@ -10,7 +10,7 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742.AI.Tasks;
 
 [UClass]
-public class UAttackTask : UMyAITask
+public partial class UAttackTask : UMyAITask
 {
     public enum TargetType
     {

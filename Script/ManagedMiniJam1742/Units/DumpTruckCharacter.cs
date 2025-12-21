@@ -17,13 +17,13 @@ using UnrealSharp.Niagara;
 namespace ManagedMiniJam1742.Units;
 
 [UClass]
-public class ADumpTruckCharacter : AUnitCharacter
+public partial class ADumpTruckCharacter : AUnitCharacter
 {
     [UProperty(PropertyFlags.EditAnywhere | PropertyFlags.BlueprintReadWrite)]
-    public int CarryingPlastic { get; set; }
+    public partial int CarryingPlastic { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere | PropertyFlags.BlueprintReadWrite)]
-    public int CarryingPlasticLimit { get; set; } = 100;
+    public partial int CarryingPlasticLimit { get; set; }
 
     private int previousCarryingPlastic;
 
@@ -32,10 +32,17 @@ public class ADumpTruckCharacter : AUnitCharacter
     private APlasticResource targetResource;
     private AAdvancedAIController aiController;
 
-    [UFunction(FunctionFlags.BlueprintEvent)]
-    public void OnCarryPlasticChanged() { }
+    public ADumpTruckCharacter()
+    {
+        CarryingPlasticLimit = 100;
+    }
 
-    protected override void BeginPlay()
+    [UFunction(FunctionFlags.BlueprintEvent)]
+    public partial void OnCarryPlasticChanged();
+    public partial void OnCarryPlasticChanged_Implementation() { }
+
+
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

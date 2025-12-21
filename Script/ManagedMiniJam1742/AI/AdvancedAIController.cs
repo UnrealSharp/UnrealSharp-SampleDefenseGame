@@ -11,20 +11,20 @@ using UnrealSharp.Attributes;
 namespace ManagedMiniJam1742.AI;
 
 [UClass]
-public class AAdvancedAIController : AAIController
+public partial class AAdvancedAIController : AAIController
 {
     [UProperty(PropertyFlags.EditAnywhere)]
-    public TSubclassOf<UMyAITask> DefaultTask { get; set; }
+    public partial TSubclassOf<UMyAITask> DefaultTask { get; set; }
 
     private Queue<UMyAITask> currentTasks = [];
 
     private UMyAITask currentTask;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 
-        if (!DefaultTask.Valid)
+        if (!DefaultTask.IsValid)
         {
             DefaultTask = typeof(UIdleTask);
         }

@@ -11,10 +11,10 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class UAnimatedSceneComponent : USceneComponent
+public partial class UAnimatedSceneComponent : USceneComponent
 {
     [UProperty(PropertyFlags.EditAnywhere)]
-    public TSubclassOf<UScriptAnimation> Animation { get; set; }
+    public partial TSubclassOf<UScriptAnimation> Animation { get; set; }
 
     public bool IsPlaying { get; private set; }
 
@@ -28,7 +28,7 @@ public class UAnimatedSceneComponent : USceneComponent
     {
         if (IsPlaying) return;
 
-        if (!Animation.Valid) return;
+        if (!Animation.IsValid) return;
 
         originalLocation = RelativeLocation;
         originaRotation = RelativeRotation;
@@ -45,7 +45,7 @@ public class UAnimatedSceneComponent : USceneComponent
         if (!IsPlaying) return;
 
         if (currentAnimation == null) return;
-        if (!currentAnimation.IsValid) return;
+        if (!currentAnimation.IsValid()) return;
 
         SetRelativeLocationAndRotation(originalLocation, originaRotation, false, out _, false);
 

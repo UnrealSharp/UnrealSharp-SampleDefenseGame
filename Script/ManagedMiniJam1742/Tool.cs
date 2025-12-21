@@ -11,7 +11,7 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1724;
 
 [UClass(ClassFlags.Abstract)]
-public class UTool : UObject
+public partial class UTool : UObject
 {
     public enum ActionType
     {

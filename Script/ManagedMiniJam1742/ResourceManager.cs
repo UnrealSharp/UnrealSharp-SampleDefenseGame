@@ -13,7 +13,7 @@ using UnrealSharp.EnhancedInput;
 namespace ManagedMiniJam1724;
 
 [UClass]
-public class AResourceManager : AActor
+public partial class AResourceManager : AActor
 {
     public static AResourceManager Get()
     {
@@ -21,38 +21,38 @@ public class AResourceManager : AActor
     }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UInputMappingContext MappingContext { get; set; }
+    public partial UInputMappingContext MappingContext { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UInputAction MoveAction { get; set; }
+    public partial UInputAction MoveAction { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UInputAction PrimaryAction { get; set; }
+    public partial UInputAction PrimaryAction { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UInputAction SecondaryAction { get; set; }
+    public partial UInputAction SecondaryAction { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UMaterial DissolveMaterial { get; set; }
+    public partial UMaterial DissolveMaterial { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public TArray<USoundWave> UnitConfirmationSounds { get; set; }
+    public partial TArray<USoundWave> UnitConfirmationSounds { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public USoundWave StructureBuiltConfirmationSound { get; set; }
+    public partial USoundWave StructureBuiltConfirmationSound { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UMaterial YellowPlastic { get; set; }
+    public partial UMaterial YellowPlastic { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UMaterial GreenPlastic { get; set; }
+    public partial UMaterial GreenPlastic { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public TSubclassOf<ASoldierCharacter> SoldierUnitClass { get; set; }
+    public partial TSubclassOf<ASoldierCharacter> SoldierUnitClass { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UMaterial GhostMaterial { get; set; }
+    public partial UMaterial GhostMaterial { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public UMaterialParameterCollection GhostMaterialParams { get; set; }
+    public partial UMaterialParameterCollection GhostMaterialParams { get; set; }
 }

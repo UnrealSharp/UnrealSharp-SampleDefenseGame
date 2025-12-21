@@ -9,7 +9,7 @@ using ManagedMiniJam1742.Units;
 namespace ManagedMiniJam1742.AI.Tasks;
 
 [UClass]
-public class UHarvestPlasticTask : UMyAITask
+public partial class UHarvestPlasticTask : UMyAITask
 {
     public enum HarvestAIState
     {
@@ -35,7 +35,7 @@ public class UHarvestPlasticTask : UMyAITask
     {
         if (CurrentState == HarvestAIState.GotoPlastic)
         {
-            if (Target == null || !Target.IsValid)
+            if (Target == null || !Target.IsValid())
             {
                 Complete();
                 return;
@@ -77,7 +77,7 @@ public class UHarvestPlasticTask : UMyAITask
         }
         else if (CurrentState == HarvestAIState.HarvestPlastic)
         {
-            if (Target == null || !Target.IsValid)
+            if (Target == null || !Target.IsValid())
             {
                 CurrentState = HarvestAIState.GotoBase;
                 Controller.StopMovement();
@@ -112,7 +112,7 @@ public class UHarvestPlasticTask : UMyAITask
         }
         else if (CurrentState == HarvestAIState.GotoBase)
         {
-            if (hqStructure == null || !hqStructure.IsValid)
+            if (hqStructure == null || !hqStructure.IsValid())
             {
                 Complete();
                 return;
@@ -130,7 +130,7 @@ public class UHarvestPlasticTask : UMyAITask
                     }
                 }
 
-                if (Target == null || !Target.IsValid)
+                if (Target == null || !Target.IsValid())
                 {
                     Complete(true);
 

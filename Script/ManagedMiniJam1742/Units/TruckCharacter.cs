@@ -8,6 +8,6 @@ using UnrealSharp.Attributes;
 namespace ManagedMiniJam1742.Units;
 
 [UClass]
-public class ATruckCharacter : AUnitCharacter
+public partial class ATruckCharacter : AUnitCharacter
 {
 }

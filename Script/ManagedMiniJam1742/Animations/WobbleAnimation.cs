@@ -8,7 +8,7 @@ using UnrealSharp.Attributes;
 namespace ManagedMiniJam1742.Animations;
 
 [UClass]
-public class UWobbleAnimation : UScriptAnimation
+public partial class UWobbleAnimation : UScriptAnimation
 {
     public override void Tick(float delta)
     {

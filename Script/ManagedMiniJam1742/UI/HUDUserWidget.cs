@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnrealSharp;
 using UnrealSharp.Attributes;
+using UnrealSharp.CoreUObject;
 using UnrealSharp.UMG;
 
 namespace ManagedMiniJam1742.UI;
 
 [UClass]
-public class UHUDUserWidget : UUserWidget
+public partial class UHUDUserWidget : UUserWidget
 {
     [UFunction(FunctionFlags.BlueprintCallable | FunctionFlags.BlueprintPure)]
     public int GetCurrentPlasticStockpile()
@@ -27,7 +28,7 @@ public class UHUDUserWidget : UUserWidget
     {
         var hqStructure = GetActorOfClass<AHQStructure>();
 
-        if (hqStructure == null || !hqStructure.IsValid) return false;
+        if (hqStructure == null || !hqStructure.IsValid()) return false;
         if (!hqStructure.CanBuildUnit(unitClass)) return false;
 
         hqStructure.BuildUnit(unitClass);

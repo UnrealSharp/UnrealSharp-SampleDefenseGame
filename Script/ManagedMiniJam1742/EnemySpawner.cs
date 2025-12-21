@@ -12,20 +12,20 @@ using UnrealSharp.NavigationSystem;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class AEnemySpawner : AActor
+public partial class AEnemySpawner : AActor
 {
     [UProperty(PropertyFlags.EditAnywhere, DefaultComponent = true, RootComponent = true)]
-    public USphereComponent SphereComponent { get; set; }
+    public partial USphereComponent SphereComponent { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public int ActiveOnWave { get; set; }
+    public partial int ActiveOnWave { get; set; }
 
     private AHQStructure hqStructure;
     private IReadOnlyList<FVector> pathPoints;
 
     private float nextPathUpdate;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

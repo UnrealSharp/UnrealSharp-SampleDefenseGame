@@ -12,20 +12,18 @@ using UnrealSharp.NavigationSystem;
 namespace ManagedMiniJam1742.Structures;
 
 [UClass]
-public class AHQStructure : AStructure
+public partial class AHQStructure : AStructure
 {
     [UProperty(PropertyFlags.EditAnywhere | PropertyFlags.BlueprintReadWrite)]
-    public int PlasticStockpile { get; set; }
+    public partial int PlasticStockpile { get; set; }
 
     private TSubclassOf<AUnitCharacter> unitClassBuilding;
     private bool isBuildingUnit;
     private TimeSpan timeUntilUnitBuilt;
 
     [UFunction(FunctionFlags.BlueprintEvent)]
-    public virtual void OnUnitBuilt(AUnitCharacter newUnit)
-    {
-
-    }
+    public partial void OnUnitBuilt(AUnitCharacter newUnit);
+    public partial void OnUnitBuilt_Implementation(AUnitCharacter newUnit) { }
 
     public bool CanBuildUnit(TSubclassOf<AUnitCharacter> unitClass)
     {

@@ -14,13 +14,13 @@ using UnrealSharp.EnhancedInput;
 namespace ManagedMiniJam1724;
 
 [UClass]
-public class APawnCameraView : APawn
+public partial class APawnCameraView : APawn
 {
     private UTool currentTool { get; set; }
 
     private AResourceManager resourceManager;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

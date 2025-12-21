@@ -13,22 +13,22 @@ using UnrealSharp.UMG;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class AStructure : AActor
+public partial class AStructure : AActor
 {
     [UProperty(PropertyFlags.EditAnywhere, DefaultComponent = true, RootComponent = true)]
-    public UStaticMeshComponent StaticMeshComponent { get; set; }
+    public partial UStaticMeshComponent StaticMeshComponent { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere | PropertyFlags.BlueprintReadWrite, DefaultComponent = true, AttachmentComponent = nameof(StaticMeshComponent))]
-    public UWidgetComponent HealthBarComponent { get; set; }
+    public partial UWidgetComponent HealthBarComponent { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public ETeam Team { get; set; }
+    public partial ETeam Team { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public float Health { get; set; }
+    public partial float Health { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadWrite)]
-    public int Cost { get; set; }
+    public partial int Cost { get; set; }
 
     private AResourceManager resourceManager;
 
@@ -61,7 +61,7 @@ public class AStructure : AActor
         }
     }
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 
@@ -71,16 +71,15 @@ public class AStructure : AActor
     }
 
     [UFunction(FunctionFlags.BlueprintEvent)]
-    public virtual void OnBuilt() 
+    public partial void OnBuilt();
+    public partial void OnBuilt_Implementation() 
     {
         PlaySound2D(resourceManager.StructureBuiltConfirmationSound);
     }
 
     [UFunction(FunctionFlags.BlueprintEvent)]
-    public void OnTakeDamage(AActor attacker)
-    {
-
-    }
+    public partial void OnTakeDamage(AActor attacker);
+    public partial void OnTakeDamage_Implementation(AActor attacker) { }
 
     [UFunction(FunctionFlags.BlueprintCallable)]
     public void ChangeTeam(ETeam newTeam)

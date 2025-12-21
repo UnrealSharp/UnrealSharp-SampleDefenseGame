@@ -13,3 +13,17 @@ public static class TraceChannelStatics
 		return (ETraceTypeQuery)traceTypeQueryHelper;
 	}
 }
+
+public enum ECollisionChannel
+{
+	Ground = 6,
+	Structure = 7,
+}
+
+public static class CollisionChannelStatics
+{
+	public static EObjectTypeQuery ToObjectTypeQuery(this ECollisionChannel traceTypeQueryHelper)
+	{
+		return (EObjectTypeQuery)traceTypeQueryHelper;
+	}
+}

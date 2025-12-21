@@ -9,17 +9,17 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class AMusicManager : AActor
+public partial class AMusicManager : AActor
 {
     [UProperty(PropertyFlags.EditAnywhere, DefaultComponent = true)]
-    public UAudioComponent AudioComponent { get; set; }
+    public partial UAudioComponent AudioComponent { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public USoundWave Music { get; set; }
+    public partial USoundWave Music { get; set; }
 
     private TimeSpan nextPlayTime;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

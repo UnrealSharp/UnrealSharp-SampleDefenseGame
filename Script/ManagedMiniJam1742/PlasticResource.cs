@@ -11,17 +11,22 @@ using UnrealSharp.Engine;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class APlasticResource : AActor
+public partial class APlasticResource : AActor
 {
     [UProperty(PropertyFlags.EditAnywhere, DefaultComponent = true, RootComponent = true)]
-    public UStaticMeshComponent StaticMeshComponent { get; set; }
+    public partial UStaticMeshComponent StaticMeshComponent { get; set; }
 
     [UProperty(PropertyFlags.EditAnywhere)]
-    public int Plastic { get; set; } = 1000;
+    public partial int Plastic { get; set; }
 
     private AResourceManager resourceManager;
 
-    protected override void BeginPlay()
+    public APlasticResource()
+    {
+        Plastic = 1000;
+    }
+
+    public override void BeginPlay()
     {
         base.BeginPlay();
 

@@ -17,18 +17,18 @@ using UnrealSharp.UnrealSharpCore;
 namespace ManagedMiniJam1742;
 
 [UClass]
-public class ADefenseGamemode : AGameMode
+public partial class ADefenseGamemode : AGameMode
 {
     public record struct Wave(int AmountToSpawn, float TimeBetweenSpawns, float TimeBeforeNextWave);
 
     [UProperty(PropertyFlags.BlueprintReadOnly)]
-    public float TimeUntilNextWave { get; set; }
+    public partial float TimeUntilNextWave { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadOnly)]
-    public int CurrentWaveNum { get; set; }
+    public partial int CurrentWaveNum { get; set; }
 
     [UProperty(PropertyFlags.BlueprintReadOnly)]
-    public int Score { get; set; }
+    public partial int Score { get; set; }
 
     private IList<AEnemySpawner> enemySpawners;
     private float nextSpawnTick;
@@ -51,7 +51,7 @@ public class ADefenseGamemode : AGameMode
 
     private AHQStructure hqStructure;
 
-    protected override void BeginPlay()
+    public override void BeginPlay()
     {
         base.BeginPlay();
 
@@ -161,7 +161,7 @@ public class ADefenseGamemode : AGameMode
         return (float)TimeSeconds < TimeUntilNextWave;
     }
 
-    protected override bool ReadyToEndMatch()
+    public override bool ReadyToEndMatch()
     {
         return (hqStructure == null || hqStructure.IsDestroyed) ||
             CurrentWaveNum >= waves.Count;
@@ -170,7 +170,7 @@ public class ADefenseGamemode : AGameMode
     [UFunction(FunctionFlags.BlueprintCallable | FunctionFlags.BlueprintPure)]
     public int GetWaveEnemiesLeft()
     {
-        int amountKilled = alreadySpawnedUnitCount - currentWaveUnits.Count(a => a != null && a.IsValid);
+        int amountKilled = alreadySpawnedUnitCount - currentWaveUnits.Count(a => a != null && a.IsValid());
 
         var currentWave = waves[CurrentWaveNum];
         return currentWave.AmountToSpawn - amountKilled;
